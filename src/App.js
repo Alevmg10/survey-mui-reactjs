@@ -16,7 +16,7 @@ import TiempoRedSocial from "./components/steps/TiempoRedSocial";
 import { makeStyles } from "@mui/styles";
 
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   layout: {
     width: "auto",
     marginLeft: theme.spacing(0.5),
@@ -50,8 +50,8 @@ const useStyles = makeStyles(theme => ({
 
 
 function App() {
-  const theme = createTheme();
-  const classes = useStyles();
+  
+  const classes = useStyles;
   const [activeStep, setActiveStep] = useState(0);
 
   const steps = [
