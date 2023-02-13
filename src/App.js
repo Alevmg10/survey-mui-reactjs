@@ -14,7 +14,6 @@ import Final from "./components/steps/Final";
 import RedSocial from "./components/steps/RedSocial";
 import TiempoRedSocial from "./components/steps/TiempoRedSocial";
 import { makeStyles } from "@mui/styles";
-import  {createTheme, ThemeProvider} from "@mui/material/styles"
 
 
 const useStyles = makeStyles(theme => ({
@@ -144,7 +143,7 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={theme} className={classes.layout}>
+    <div className={classes.layout}>
       <Paper className={classes.paper} elevation={1}>
         <Stepper activeStep={activeStep}>
           {steps.map((label, index) => {
@@ -207,7 +206,7 @@ function App() {
           )}
         </div>
       </Paper>
-    </ThemeProvider>
+    </div>
   );
 }
 
