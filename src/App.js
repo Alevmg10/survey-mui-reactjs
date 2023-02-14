@@ -13,7 +13,8 @@ import Edad from "./components/steps/Edad";
 import Final from "./components/steps/Final";
 import RedSocial from "./components/steps/RedSocial";
 import TiempoRedSocial from "./components/steps/TiempoRedSocial";
-import { makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@material-ui/core";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   
-  const classes = useStyles;
+  const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
 
   const steps = [
