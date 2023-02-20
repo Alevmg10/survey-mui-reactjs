@@ -1,6 +1,7 @@
 import React from 'react';
 import { Controller, useFormContext } from "react-hook-form";
 import { FormControl, FormControlLabel, FormHelperText, Radio, RadioGroup } from "@mui/material";
+// import { CustomTheme } from '../Styles';
 
 const options = [
     {
@@ -31,11 +32,16 @@ const options = [
   ]
 
 export default function RedSocial() {
-
+    
+    // const theme = CustomTheme();
     const {control} = useFormContext();
 
     return (
-      <Controller
+      <div className="flex flex-col items-center space-y-5">
+        <h6 className="mt-4 text-lg mb-3 h-6 text-gray-700 font-bold leading-8">
+            De las siguientes opciones, ¿cual red social es de su preferencia?
+        </h6>
+        <Controller
         name="redSocial"
         render={({field:{value, onChange}, fieldState: { invalid, error }}) => (
           <FormControl error={invalid}>
@@ -51,5 +57,6 @@ export default function RedSocial() {
           )}
           control={control}
         />  
+      </div>
     );
 }

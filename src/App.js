@@ -3,56 +3,24 @@ import Stepper from '@mui/material/Stepper';
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from '@mui/material/Button';
-import { Box, Paper } from "@mui/material";
+import { Box, Paper, Link } from "@mui/material";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
 import Iniciar from "./components/steps/Iniciar";
 import Genero from "./components/steps/Genero";
 import Edad from "./components/steps/Edad";
-import Final from "./components/steps/Final";
 import RedSocial from "./components/steps/RedSocial";
 import TiempoRedSocial from "./components/steps/TiempoRedSocial";
-// import { makeStyles } from "@mui/styles";
-import { makeStyles } from "@material-ui/core";
-
-
-const useStyles = makeStyles((theme) => ({
-  layout: {
-    width: "auto",
-    marginLeft: theme.spacing(0.5),
-    marginRight: theme.spacing(0.5),
-    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: "90%",
-      marginLeft: "auto",
-      marginRight: "auto"
-    }
-  },
-  button: {
-    marginRight: theme.spacing(1),
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    minHeight: "25vh"
-  },
-  paper: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    padding: theme.spacing(2),
-    [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
-      marginTop: theme.spacing(4),
-      marginBottom: theme.spacing(6),
-      padding: theme.spacing(3)
-    }
-  }
-}));
+import  {CustomTheme, useStyles } from "./components/Styles";
+import { ThemeProvider } from "@mui/material/styles";
 
 
 
 function App() {
   
   const classes = useStyles();
+  const theme = CustomTheme();
   const [activeStep, setActiveStep] = useState(0);
 
   const steps = [
@@ -61,7 +29,6 @@ function App() {
     "Edad",
     "Red Social",
     "Tiempo",
-    "Finalizar"
   ];
 
   const getStepContent = (step) => {
@@ -71,7 +38,6 @@ function App() {
       case 2: return <Edad/>;
       case 3: return <RedSocial/>;
       case 4: return <TiempoRedSocial/>;
-      case 5: return <Final/>;
       default:
     }
   }
@@ -92,7 +58,7 @@ function App() {
 
   const onSubmit = (data) => {
     console.log(JSON.stringify(data));
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
     handleNext();
   };
 
@@ -146,12 +112,14 @@ function App() {
   return (
     <div className={classes.layout}>
       <Paper className={classes.paper} elevation={1}>
+      <ThemeProvider theme={theme}>
+
         <Stepper activeStep={activeStep}>
           {steps.map((label, index) => {
             const stepProps = {};
             const labelProps = {};
             return (
-              <Step key={label} {...stepProps}>
+              <Step color="primary" key={label} {...stepProps}>
                 <StepLabel {...labelProps}>{label}</StepLabel>
               </Step>
             );
@@ -159,11 +127,25 @@ function App() {
         </Stepper>
         <div style={{ minHeight: "50%" }}>
           {activeStep === steps.length ? (
-            <>
-              <Button onClick={handleReset} className={classes.button}>
-                Reset
-              </Button>
-            </>
+              <div className="container md:mt-10">
+                <div className="flex flex-col items-center">
+                  <div className="wrapper">
+                    <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                      <circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                      <path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    </svg>
+                  </div>
+                  <div className="mt-3 text-xl font-semibold uppercase text-green-500">
+                    Encuesta Finalizada
+                  </div>
+                  <div className="text-lg font-semibold text-gray-500">
+                    Gracias por participar
+                  </div>
+                  <Button variant="contained" onClick={handleReset} className={classes.button}>
+                    Reiniciar
+                  </Button> 
+                </div>
+              </div>
           ) : (
             <FormProvider {...methods}>
               <form>
@@ -178,27 +160,31 @@ function App() {
                   <Button
                     disabled={activeStep === 0}
                     onClick={handleBack}
+                    color="primary"
+                    variant="outlined"
                     className={classes.button}
                   >
-                    Back
+                    Atras
                   </Button>
                   {activeStep === steps.length - 1 ? (
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleSubmit(onSubmit)}
-                      className={classes.button}
-                    >
-                      Submit
-                    </Button>
+                    <Link href="/">
+                      {<Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleSubmit(onSubmit)}
+                        className={classes.button}
+                      >
+                        Enviar
+                      </Button>}
+                    </Link>
                   ) : (
                     <Button
                       variant="contained"
-                      color="primary"
                       onClick={handleNext}
+                      color="primary"
                       className={classes.button}
                     >
-                      Next
+                      Siguiente
                     </Button>
                   )}
                 </Box>
@@ -206,6 +192,7 @@ function App() {
             </FormProvider>
           )}
         </div>
+        </ThemeProvider>
       </Paper>
     </div>
   );

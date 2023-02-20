@@ -30,7 +30,15 @@ export default function TiempoRedSocial() {
     const {control} = useFormContext();
 
   return (
-    <>
+    <div className="flex flex-col items-center space-y-5">
+      <h6 className="mt-4 text-lg mb-3 h-6 text-gray-700 font-bold leading-8">
+        ¿Cuanto cree usted que dura al dia usando una red social?
+      </h6>
+      {/* FACEBOOK */}
+      <div className="flex flex-col justify-start space-y-2">
+        <h6 className="mt-4 mb-3 h-6 text-gray-700 font-bold leading-8">
+          Facebook
+        </h6>
         <Controller
             name="tiempoFacebook"
             render={({field:{value, onChange}, fieldState: { invalid, error }}) => (
@@ -47,6 +55,10 @@ export default function TiempoRedSocial() {
           )}
           control={control}
         />
+      {/* INSTAGRAM */}
+        <h6 className="mt-4 mb-3 h-6 text-gray-700 font-bold leading-8">
+          Intagram
+        </h6>
         <Controller
             name="tiempoInstagram"
             render={({field:{value, onChange}, fieldState: { invalid, error }}) => (
@@ -63,6 +75,10 @@ export default function TiempoRedSocial() {
           )}
           control={control}
         />
+        {/* TikTok */}
+        <h6 className="mt-4 mb-3 h-6 text-gray-700 font-bold leading-8">
+          TikTok
+        </h6>
         <Controller
             name="tiempoTikTok"
             render={({field:{value, onChange}, fieldState: { invalid, error }}) => (
@@ -79,6 +95,10 @@ export default function TiempoRedSocial() {
             )}
           control={control}
         />
+        {/* Twitter */}
+        <h6 className="mt-4 mb-3 h-6 text-gray-700 font-bold leading-8">
+          Twitter
+        </h6>
         <Controller
             name="tiempoTwitter"
             render={({field:{value, onChange}, fieldState: { invalid, error }}) => (
@@ -95,6 +115,10 @@ export default function TiempoRedSocial() {
             )}
           control={control}
         />
+        {/* Whatsapp */}
+        <h6 className="mt-4 mb-3 h-6 text-gray-700 font-bold leading-8">
+          WhatsApp
+        </h6>
         <Controller
             name="tiempoWhatsApp"
             render={({field:{value, onChange}, fieldState: { invalid, error }}) => (
@@ -111,6 +135,7 @@ export default function TiempoRedSocial() {
             )}
           control={control}
         />
-    </>
+      </div>
+    </div>
   )
 }

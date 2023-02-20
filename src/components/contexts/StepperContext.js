@@ -1,19 +1,19 @@
-import { createContext, useContext, useState } from "react";
+// import { createContext, useContext, useState } from "react";
 
-const StepperContext = createContext({ userData: "", setUserData: null });
+// const StepperContext = createContext({ userData: "", setUserData: null });
 
-export function UseContextProvider({ children }) {
-  const [userData, setUserData] = useState({});
+// export function UseContextProvider({ children }) {
+//   const [userData, setUserData] = useState({});
 
-  return (
-    <StepperContext.Provider value={{ userData, setUserData }}>
-      {children}
-    </StepperContext.Provider>
-  );
-}
+//   return (
+//     <StepperContext.Provider value={{ userData, setUserData }}>
+//       {children}
+//     </StepperContext.Provider>
+//   );
+// }
 
-export function useStepperContext() {
-  const { userData, setUserData } = useContext(StepperContext);
+// export function useStepperContext() {
+//   const { userData, setUserData } = useContext(StepperContext);
 
-  return { userData, setUserData };
-}
+//   return { userData, setUserData };
+// }

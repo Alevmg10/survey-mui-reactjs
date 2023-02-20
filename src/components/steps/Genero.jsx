@@ -23,7 +23,13 @@ export default function Genero() {
   const {control} = useFormContext();
 
   return (
-    <Controller
+    
+    <div className="flex flex-col items-center space-y-5">
+      <h6 className="mt-4 text-lg mb-3 h-6 text-gray-700 font-bold leading-8">
+        Elija su sexo
+      </h6>
+      <div className="flex justify-center items-center">
+      <Controller
       name="genero"
       render={({field:{value, onChange}, fieldState: { invalid, error }}) => (
         <FormControl error={invalid}>
@@ -38,6 +44,8 @@ export default function Genero() {
         </FormControl>
         )}
         control={control}
-      />                                             
+      /> 
+      </div>
+    </div>
   );
 }
