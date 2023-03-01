@@ -1,21 +1,17 @@
-// import React from 'react';
 import { makeStyles } from "@material-ui/core";
 import { createTheme } from '@mui/material/styles';
 
 export const useStyles = makeStyles((theme) => ({
     layout: {
       width: "auto",
-      marginLeft: theme.spacing(0.5),
-      marginRight: theme.spacing(0.5),
+      height: "100vh",
+      // marginLeft: theme.spacing(0.5),
+      // marginRight: theme.spacing(0.5),
       [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
         width: "90%",
         marginLeft: "auto",
         marginRight: "auto"
       }
-    },
-    button: {
-      marginRight: theme.spacing(1),
-      marginTop: theme.spacing(1),
     },
     instructions: {
       marginTop: theme.spacing(1),
@@ -23,8 +19,8 @@ export const useStyles = makeStyles((theme) => ({
       minHeight: "25vh"
     },
     paper: {
-      marginTop: theme.spacing(2),
-      marginBottom: theme.spacing(2),
+      // marginTop: theme.spacing(2),
+      // marginBottom: theme.spacing(2),
       padding: theme.spacing(2),
       [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
         marginTop: theme.spacing(4),
@@ -32,7 +28,19 @@ export const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(3)
       }
     },
-    
+    box: {
+      width: "100%",
+      height: "auto",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      padding: theme.spacing(2),
+    },
+    form_control: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    }
   }));
 
 

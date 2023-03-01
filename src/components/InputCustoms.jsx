@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { TextField, FormHelperText, FormControl } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 import { alpha, styled } from '@mui/material/styles';
 import { CustomTheme } from "./Styles";
@@ -29,13 +29,15 @@ export const TextFieldCustom = ({...rest}) => {
       <Controller
       {...rest}
       render={({ field, fieldState: { invalid, error } }) => (
-        <CssTextField
-          
+        <FormControl error={invalid}>
+          <CssTextField
           label={rest.label}
-          helperText={invalid ? error.message : ""}
+          //helperText={invalid ? error.message : " "}
           {...field}
           error={invalid}
-        />
+          />
+          <FormHelperText variant="string" style={{marginBottom:"0.5rem"}}>{invalid ? error.message : " "}</FormHelperText>
+        </FormControl>
       )}
       control={control}
       defaultValue={rest.defaultValue}

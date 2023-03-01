@@ -1,6 +1,7 @@
 import React from 'react';
 import { Controller, useFormContext } from "react-hook-form";
-import { FormControl, FormControlLabel, FormHelperText, Radio, RadioGroup } from "@mui/material";
+import { Box, FormControl, FormControlLabel, FormHelperText, Radio, RadioGroup } from "@mui/material";
+import { useStyles } from '../Styles';
 
 const options = [
     {
@@ -28,15 +29,16 @@ const options = [
 export default function TiempoRedSocial() {
 
     const {control} = useFormContext();
+    const classes = useStyles();
 
   return (
-    <div className="flex flex-col items-center space-y-5">
+    <Box className={classes.box}>
       <h6 className="mt-4 text-lg mb-3 h-6 text-gray-700 font-bold leading-8">
         ¿Cuanto cree usted que dura al dia usando una red social?
       </h6>
       {/* FACEBOOK */}
-      <div className="flex flex-col justify-start space-y-2">
-        <h6 className="mt-4 mb-3 h-6 text-gray-700 font-bold leading-8">
+      <div className="flex flex-col justify-start space-y-1">
+        <h6 className="mt-4 h-6 text-gray-700 font-bold">
           Facebook
         </h6>
         <Controller
@@ -50,14 +52,14 @@ export default function TiempoRedSocial() {
                                                               control={<Radio />}
                 />)}
             </RadioGroup>
-            <FormHelperText>{invalid ? error.message : ""}</FormHelperText>
+            <FormHelperText variant="string">{invalid ? error.message : " "}</FormHelperText>
             </FormControl>
           )}
           control={control}
         />
       {/* INSTAGRAM */}
-        <h6 className="mt-4 mb-3 h-6 text-gray-700 font-bold leading-8">
-          Intagram
+        <h6 className="mt-4 h-6 text-gray-700 font-bold">
+          Instagram
         </h6>
         <Controller
             name="tiempoInstagram"
@@ -70,13 +72,13 @@ export default function TiempoRedSocial() {
                                                               control={<Radio />}
               />)}
             </RadioGroup>
-            <FormHelperText>{invalid ? error.message : ""}</FormHelperText>
+            <FormHelperText variant="string">{invalid ? error.message : " "}</FormHelperText>
             </FormControl>
           )}
           control={control}
         />
         {/* TikTok */}
-        <h6 className="mt-4 mb-3 h-6 text-gray-700 font-bold leading-8">
+        <h6 className="mt-4 h-6 text-gray-700 font-bold">
           TikTok
         </h6>
         <Controller
@@ -90,13 +92,13 @@ export default function TiempoRedSocial() {
                                                               control={<Radio />}
                 />)}
             </RadioGroup>
-            <FormHelperText>{invalid ? error.message : ""}</FormHelperText>
+            <FormHelperText variant="string">{invalid ? error.message : " "}</FormHelperText>
             </FormControl>
             )}
           control={control}
         />
         {/* Twitter */}
-        <h6 className="mt-4 mb-3 h-6 text-gray-700 font-bold leading-8">
+        <h6 className="mt-4 h-6 text-gray-700 font-bold">
           Twitter
         </h6>
         <Controller
@@ -110,13 +112,13 @@ export default function TiempoRedSocial() {
                                                               control={<Radio />}
                 />)}
             </RadioGroup>
-            <FormHelperText>{invalid ? error.message : ""}</FormHelperText>
+            <FormHelperText variant="string">{invalid ? error.message : " "}</FormHelperText>
             </FormControl>
             )}
           control={control}
         />
         {/* Whatsapp */}
-        <h6 className="mt-4 mb-3 h-6 text-gray-700 font-bold leading-8">
+        <h6 className="mt-4 h-6 text-gray-700 font-bold leading-8">
           WhatsApp
         </h6>
         <Controller
@@ -130,12 +132,12 @@ export default function TiempoRedSocial() {
                                                               control={<Radio />}
                 />)}
             </RadioGroup>
-            <FormHelperText>{invalid ? error.message : ""}</FormHelperText>
+            <FormHelperText variant="string">{invalid ? error.message : " "}</FormHelperText>
             </FormControl>
             )}
           control={control}
         />
       </div>
-    </div>
+    </Box>
   )
 }

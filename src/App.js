@@ -113,7 +113,6 @@ function App() {
     <div className={classes.layout}>
       <Paper className={classes.paper} elevation={1}>
       <ThemeProvider theme={theme}>
-
         <Stepper activeStep={activeStep}>
           {steps.map((label, index) => {
             const stepProps = {};
@@ -128,7 +127,7 @@ function App() {
         <div style={{ minHeight: "50%" }}>
           {activeStep === steps.length ? (
               <div className="container md:mt-10">
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center space-y-4">
                   <div className="wrapper">
                     <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
                       <circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
@@ -141,7 +140,7 @@ function App() {
                   <div className="text-lg font-semibold text-gray-500">
                     Gracias por participar
                   </div>
-                  <Button variant="contained" onClick={handleReset} className={classes.button}>
+                  <Button variant="contained" onClick={handleReset}>
                     Reiniciar
                   </Button> 
                 </div>
@@ -155,14 +154,14 @@ function App() {
                 <Box
                   display="flex"
                   justifyContent="center"
-                  style={{ paddingTop: "5vh" }}
+                  style={{marginTop: "5vh"}}
                 >
                   <Button
                     disabled={activeStep === 0}
                     onClick={handleBack}
                     color="primary"
                     variant="outlined"
-                    className={classes.button}
+                    style={{marginRight: theme.spacing(1)}}
                   >
                     Atras
                   </Button>
@@ -172,7 +171,6 @@ function App() {
                         variant="contained"
                         color="primary"
                         onClick={handleSubmit(onSubmit)}
-                        className={classes.button}
                       >
                         Enviar
                       </Button>}
@@ -182,7 +180,6 @@ function App() {
                       variant="contained"
                       onClick={handleNext}
                       color="primary"
-                      className={classes.button}
                     >
                       Siguiente
                     </Button>
