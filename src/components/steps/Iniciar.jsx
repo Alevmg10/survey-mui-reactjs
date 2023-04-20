@@ -9,8 +9,11 @@ export default function Iniciar() {
 
   return ( 
       <Box className={classes.box}>
-        <h6 className="mt-4 h-6 text-gray-700 font-bold leading-8 text-lg mb-8">
+        <h6 className="hidden md:block mt-4 h-6 text-gray-700 font-bold leading-8 text-lg mb-8">
           Ingrese sus datos para comenzar la encuesta
+        </h6>
+        <h6 className="sm:hidden mt-4 h-6 text-gray-700 font-bold leading-8 text-lg mb-8">
+          Ingrese sus datos.
         </h6>
         <TextFieldCustom label="Nombre" name="nombre"  />
         <TextFieldCustom label="Apellido" name="apellido" />

@@ -31,6 +31,7 @@ export const TextFieldCustom = ({...rest}) => {
       render={({ field, fieldState: { invalid, error } }) => (
         <FormControl error={invalid}>
           <CssTextField
+          style={{md: {size:"small"}}}
           label={rest.label}
           //helperText={invalid ? error.message : " "}
           {...field}

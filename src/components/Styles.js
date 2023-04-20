@@ -4,7 +4,7 @@ import { createTheme } from '@mui/material/styles';
 export const useStyles = makeStyles((theme) => ({
     layout: {
       width: "auto",
-      height: "100vh",
+      //height: "100vh",
       // marginLeft: theme.spacing(0.5),
       // marginRight: theme.spacing(0.5),
       [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
